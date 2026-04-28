@@ -1,0 +1,10 @@
+package in.co.rays.proj4.controller;
+
+public class WelcomeCtl extends BaseCtl {
+
+	@Override
+	protected String getView() {
+		return "Welcome.jsp";
+	}
+
+}

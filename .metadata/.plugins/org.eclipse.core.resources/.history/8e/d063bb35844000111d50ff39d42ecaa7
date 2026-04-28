@@ -1,0 +1,43 @@
+package in.co.rays.proj4.test;
+
+import java.sql.Timestamp;
+import java.util.Date;
+
+import in.co.rays.proj4.bean.CourseBean;
+import in.co.rays.proj4.exception.DuplicateRecordException;
+import in.co.rays.proj4.model.CourseModel;
+
+public class Coursetest {
+public static CourseModel model= new CourseModel();
+	
+	
+	public static void main(String[] args) throws Exception {
+		testadd();
+		//testDelete();
+		//testFindByName();
+		//testFindByPk();
+		//testUpdate();
+		//testsearch();
+		//testlist();
+		
+	}
+public static void testadd() throws DuplicateRecordException {
+		
+		try {
+			CourseBean bean= new CourseBean();
+			bean.setId(1);
+			bean.setName("B.com");
+			bean.setDescription("commerce");
+			bean.setDuration("4 Year");
+			bean.setCreatedBy("admin");
+			bean.setModifiedBy("admin");
+			bean.setCreatedDatetime(new Timestamp(new Date().getTime()));
+			bean.setModifiedDatetime(new Timestamp(new Date().getTime()));			
+			long pk=model.add(bean);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+}

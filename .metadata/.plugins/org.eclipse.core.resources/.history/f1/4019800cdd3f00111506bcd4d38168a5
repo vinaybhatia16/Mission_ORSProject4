@@ -1,0 +1,52 @@
+package in.co.rays.proj4.test;
+
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.util.Date;
+
+import in.co.rays.proj4.bean.UserBean;
+import in.co.rays.proj4.exception.ApplicationException;
+import in.co.rays.proj4.exception.DuplicateRecordException;
+import in.co.rays.proj4.model.UserModel;
+
+public class TestUserModel {
+	
+		public static void main(String[] args) throws ParseException, SQLException {
+			 testAdd();
+			//testUpdate();
+			 //testDelete();
+			 //testfindByPk();
+			//testFindByName();
+			//testSearch();
+	}
+
+		public static void testAdd() throws ParseException, SQLException {
+			try {
+				UserBean bean = new UserBean();
+				UserModel model = new UserModel();
+				
+				bean.setFirstName("admin");
+				bean.setLastName("rayss");
+				bean.setLogin("1admin@gmail.com");;
+				bean.setPassword("123");
+				bean.setDob(new Timestamp(new Date().getTime()));
+				bean.setMobileNo("9926278640");
+				bean.setRoleId(1);
+				bean.setGender("male");
+				bean.setModifiedBy("same");
+				bean.setCreatedBy("same");
+				bean.setCreatedDatetime(new Timestamp(new Date().getTime()));
+				bean.setModifiedDatetime(new Timestamp(new Date().getTime()));
+				long pk = model.add(bean);
+				UserBean addedbean = model.findByPk(pk);
+				if (addedbean == null) {
+					System.out.println("Test add fail");
+				}
+			} catch (ApplicationException | DuplicateRecordException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		}
+		

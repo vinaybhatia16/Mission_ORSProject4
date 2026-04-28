@@ -1,0 +1,91 @@
+package in.co.rays.proj4.test;
+
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.util.Date;
+
+import in.co.rays.proj4.bean.RoleBean;
+import in.co.rays.proj4.bean.UserBean;
+import in.co.rays.proj4.exception.ApplicationException;
+import in.co.rays.proj4.exception.DuplicateRecordException;
+import in.co.rays.proj4.model.UserModel;
+
+public class TestUserModel {
+	
+		public static void main(String[] args) throws ParseException, SQLException {
+			 //testAdd();
+			testUpdate();
+			 //testDelete();
+			 //testfindByPk();
+			//testFindByName();
+			//testSearch();
+	}
+
+		public static void testAdd() throws ParseException, SQLException {
+			try {
+				UserBean bean = new UserBean();
+				UserModel model = new UserModel();
+				bean.setId(0);
+				bean.setFirstName("admin");
+				bean.setLastName("rayss");
+				bean.setLogin("admin@gmail.com");;
+				bean.setPassword("123");
+				bean.setDob(new Timestamp(new Date().getTime()));
+				bean.setMobileNo("9926278640");
+				bean.setRoleId(2);
+				bean.setGender("male");
+				bean.setModifiedBy("same");
+				bean.setCreatedBy("same");
+				bean.setCreatedDatetime(new Timestamp(new Date().getTime()));
+				bean.setModifiedDatetime(new Timestamp(new Date().getTime()));
+				long pk = model.add(bean);
+				UserBean addedbean = model.findByPk(pk);
+				if (addedbean == null) {
+					System.out.println("Test add fail");
+				}
+			} catch (ApplicationException | DuplicateRecordException e) {
+				e.printStackTrace();
+			}
+		
+		}
+		public static void testUpdate() {
+		    UserBean bean = new UserBean();
+
+		    
+		    bean.setId(1L);
+
+		    // Updated values
+		    bean.setFirstName("John");
+		    bean.setLastName("Doe");
+		    bean.setLogin("john.doe@example.com");
+		    bean.setPassword("newpassword123");
+		    bean.setDob(new java.util.Date());
+		    bean.setMobileNo("9876543210");
+		    bean.setRoleId(1L);
+		    bean.setGender("Male");
+		    bean.setCreatedBy("admin");
+		    bean.setModifiedBy("admin");
+		    bean.setCreatedDatetime(new java.sql.Timestamp(System.currentTimeMillis()));
+		    bean.setModifiedDatetime(new java.sql.Timestamp(System.currentTimeMillis()));
+
+		    try {
+		        UserModel model = new UserModel();
+		        model.update(bean);                                        
+
+		        System.out.println("User updated successfully.");
+		        System.out.println("First Name : " + bean.getFirstName());  // 
+		        System.out.println("Last Name  : " + bean.getLastName());
+		        System.out.println("Login      : " + bean.getLogin());
+		        System.out.println("Mobile No  : " + bean.getMobileNo());
+		        System.out.println("Gender     : " + bean.getGender());
+		        System.out.println("Role ID    : " + bean.getRoleId());
+
+		    } catch (DuplicateRecordException e) {
+		        System.out.println("Duplicate Record : " + e.getMessage());
+
+		    } catch (ApplicationException e) {
+		        System.out.println("Application Error : " + e.getMessage());
+		    }
+		}
+}
