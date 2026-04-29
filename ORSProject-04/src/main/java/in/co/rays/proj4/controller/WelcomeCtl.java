@@ -2,7 +2,6 @@ package in.co.rays.proj4.controller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +22,7 @@ public class WelcomeCtl extends BaseCtl {
 
 	@Override
 	protected String getView() {
-		return "jsp/Welcome.jsp";
+		return ORSView.WELCOME_VIEW;
 	}
 
 }
