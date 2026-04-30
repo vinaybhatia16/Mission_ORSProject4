@@ -88,9 +88,12 @@ public class HTMLUtility {
 
 	public static void main(String[] args) throws Exception {
 
-		// testGetListByMap();
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("male", "male");
+		map.put("female", "female");
+		map.put("other", "other");
 
-		testGetListByList();
+		System.out.println(getList("gender", null, map));
 
 	}
 }
