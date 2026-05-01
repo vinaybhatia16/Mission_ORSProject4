@@ -12,7 +12,7 @@
 	<br>
 
 
-	<div align="center">
+	<div align="left">
 		<img src="img/customLogo.jpg" align="middle" width="320" height="127"
 			border="0">
 	</div>

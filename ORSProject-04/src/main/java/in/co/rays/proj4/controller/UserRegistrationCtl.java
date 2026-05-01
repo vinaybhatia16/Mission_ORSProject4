@@ -1,4 +1,4 @@
-package in.co.rays.proj4.controller;
+ package in.co.rays.proj4.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -114,6 +114,7 @@ public class UserRegistrationCtl extends BaseCtl {
 		bean.setDob(DataUtility.getDate(request.getParameter("dob")));
 		bean.setMobileNo(DataUtility.getString(request.getParameter("mobileNo")));
 
+		// imp line
 		bean.setRoleId(RoleBean.STUDENT);
 
 		return bean;

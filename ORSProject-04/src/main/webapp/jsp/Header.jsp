@@ -24,13 +24,13 @@
 		<%=user.getFirstName()%>
 		(<%=session.getAttribute("role")%>)
 	</h3>
-	<a href=#"><b>Logout</b></a>
+	<a href="<%=ORSView.LOGIN_CTL + "?operation=Logout"%>"><b>Logout</b></a>
 	<%
 	} else {
 	%>
 	<h3>Hi, Guest</h3>
 	<a href="<%=ORSView.WELCOME_CTL%>"><b>Welcome</b></a> |
-	<a href="#"><b>Login</b></a>
+	<a href="<%=ORSView.LOGIN_CTL%>"><b>Login</b></a>
 	<%
 	}
 	%>

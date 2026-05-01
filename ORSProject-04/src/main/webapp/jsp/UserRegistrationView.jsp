@@ -47,6 +47,7 @@
 				<tr>
 					<th>Last Name:</th>
 					<td><input type="text" name="lastName"
+						placeholder="enter last name"
 						value="<%=DataUtility.getStringData(bean.getLastName())%>"></td>
 					<td style="position: fixed;"><font color="red"> <%=ServletUtility.getErrorMessage("lastName", request)%></font></td>
 
@@ -54,6 +55,7 @@
 				<tr>
 					<th>Login ID:</th>
 					<td><input type="text" name="login"
+						placeholder="enter loginId"
 						value="<%=DataUtility.getStringData(bean.getLogin())%>"></td>
 					<td style="position: fixed;"><font color="red"> <%=ServletUtility.getErrorMessage("login", request)%></font></td>
 
@@ -61,6 +63,7 @@
 				<tr>
 					<th>Password:</th>
 					<td><input type="text" name="password"
+						placeholder="enter password"
 						value="<%=DataUtility.getStringData(bean.getPassword())%>"></td>
 					<td style="position: fixed;"><font color="red"> <%=ServletUtility.getErrorMessage("password", request)%></font></td>
 
@@ -68,6 +71,7 @@
 				<tr>
 					<th>Confirm:</th>
 					<td><input type="text" name="confirmPassword"
+						placeholder="confirm password"
 						value="<%=DataUtility.getStringData(bean.getConfirmPassword())%>"></td>
 					<td style="position: fixed;"><font color="red"> <%=ServletUtility.getErrorMessage("confirmPassword", request)%></font></td>
 
@@ -94,6 +98,7 @@
 				<tr>
 					<th>Mobile:</th>
 					<td><input type="text" name="mobileNo"
+						placeholder="enter mobile number"
 						value="<%=DataUtility.getStringData(bean.getMobileNo())%>"></td>
 					<td style="position: fixed;"><font color="red"> <%=ServletUtility.getErrorMessage("mobileNo", request)%></font></td>
 
@@ -105,6 +110,7 @@
 						value="<%=UserRegistrationCtl.OP_SIGN_UP%>"> <input
 						type="submit" name="operation"
 						value="<%=UserRegistrationCtl.OP_RESET%>"></td>
+
 				</tr>
 			</table>
 		</div>
